@@ -29,7 +29,7 @@
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/your-username/the-tiebreaker.git
+   git clone https://github.com/Hefrock/the-tiebreaker.git
    cd the-tiebreaker
    ```
 
