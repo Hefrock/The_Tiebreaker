@@ -2,9 +2,11 @@ import express from "express";
 import path from "path";
 import { createServer as createViteServer } from "vite";
 import { generateText } from "ai";
-import { google, createGoogleGenerativeAI } from "@ai-sdk/google";
 import { openai, createOpenAI } from "@ai-sdk/openai";
 import { anthropic, createAnthropic } from "@ai-sdk/anthropic";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 async function startServer() {
   const app = express();
@@ -24,16 +26,7 @@ async function startServer() {
 
     try {
       let model;
-      if (provider === "gemini") {
-        /**
-         * NOTE: Gemini uses the built-in GEMINI_API_KEY from the environment.
-         */
-        const apiKey = process.env.GEMINI_API_KEY;
-        const customGoogle = createGoogleGenerativeAI({
-          apiKey: apiKey || '',
-        });
-        model = customGoogle("gemini-1.5-pro-latest");
-      } else if (provider === "openai") {
+      if (provider === "openai") {
         const key = openaiKey || process.env.OPENAI_API_KEY;
         if (!key) throw new Error("OpenAI API Key is missing. Please provide it in settings.");
         const customOpenAI = createOpenAI({ apiKey: key });
@@ -44,7 +37,7 @@ async function startServer() {
         const customAnthropic = createAnthropic({ apiKey: key });
         model = customAnthropic("claude-3-5-sonnet-20240620");
       } else {
-        throw new Error("Invalid provider");
+        throw new Error("Invalid provider for backend proxy");
       }
 
       let systemInstruction = "You are a professional decision-making assistant. Provide clear, structured analysis using Markdown.";

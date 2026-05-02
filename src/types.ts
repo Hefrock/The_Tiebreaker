@@ -4,7 +4,6 @@ export type AIProvider = 'gemini' | 'openai' | 'claude';
 export interface APIKeys {
   openai?: string;
   claude?: string;
-  gemini?: string;
 }
 
 export interface AnalysisResult {

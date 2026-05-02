@@ -418,8 +418,16 @@ export default function App() {
                 
                 <div className="space-y-4">
                   <div>
-                    <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1.5">
+                    <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1.5 flex items-center justify-between">
                       OpenAI API Key
+                      <a 
+                        href="https://platform.openai.com/api-keys" 
+                        target="_blank" 
+                        rel="noreferrer"
+                        className="text-brand-500 hover:underline font-medium lowercase tracking-normal flex items-center gap-1"
+                      >
+                        Get Key <ChevronRight className="w-3 h-3" />
+                      </a>
                     </label>
                     <div className="relative">
                       <Key className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
@@ -434,8 +442,16 @@ export default function App() {
                   </div>
                   
                   <div>
-                    <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1.5">
+                    <label className="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-1.5 flex items-center justify-between">
                       Anthropic API Key
+                      <a 
+                        href="https://console.anthropic.com/settings/keys" 
+                        target="_blank" 
+                        rel="noreferrer"
+                        className="text-brand-500 hover:underline font-medium lowercase tracking-normal flex items-center gap-1"
+                      >
+                        Get Key <ChevronRight className="w-3 h-3" />
+                      </a>
                     </label>
                     <div className="relative">
                       <Key className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
@@ -450,10 +466,10 @@ export default function App() {
                   </div>
 
                   <div className="pt-2">
-                    <div className="flex items-start gap-2 p-3 bg-amber-50 rounded-xl border border-amber-100">
-                      <AlertCircle className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
-                      <p className="text-[11px] text-amber-800 leading-relaxed">
-                        <strong>Gemini Note:</strong> The built-in Gemini key is currently active for testing. In some public environments, it may require a manual key override if the default quota is reached.
+                    <div className="flex items-start gap-2 p-3 bg-brand-50 rounded-xl border border-brand-100">
+                      <Sparkles className="w-4 h-4 text-brand-600 shrink-0 mt-0.5" />
+                      <p className="text-[11px] text-brand-800 leading-relaxed">
+                        <strong>Gemini:</strong> The built-in Google Gemini brain is provided automatically by this environment. No additional configuration is required.
                       </p>
                     </div>
                   </div>
